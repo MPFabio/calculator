@@ -44,11 +44,11 @@ pipeline {
                         remote.name = 'fabio'
                         remote.host = '4.233.106.239'
                         remote.user = 'fabio'
-                        remote.password = 'Dofus69200Fabio'
+                        remote.identityFile = '/home/fabio/.ssh/id_rsa'
                         remote.allowAnyHosts = true
                         stage('Remote SSH') {
                             sshCommand remote: remote, command: "sudo docker pull fabiomp/fabio-tp-game"
-                            sshCommand remote: remote, command: "sudo docker run -d -p 5003:3000 --name calculator fabiomp/fabio-tp-game"
+                            sshCommand remote: remote, command: "sudo docker run -d -p 5003:3000 --name calculator-key fabiomp/fabio-tp-game"
                         }
                     }
                 }
