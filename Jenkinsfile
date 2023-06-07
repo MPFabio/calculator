@@ -43,8 +43,8 @@ pipeline {
           remote.password = 'Dofus69200Fabio'
           remote.allowAnyHosts = true
           stage('Remote SSH') {
-            sshCommand remote: remote, command: "ls -lrt"
-            sshCommand remote: remote, command: "for i in {1..5}; do echo -n \"Loop \$i \"; date ; sleep 1; done"
+            sshCommand remote: remote, command: "sudo docker pull fabiomp/fabio-tp-game"
+            sshCommand remote: remote, command: "sudo docker run -d -p 5003:3000 --name calculator fabiomp/fabio-tp-game"
           }
         }
     }
