@@ -48,7 +48,7 @@ pipeline {
                         remote.allowAnyHosts = true
                         stage('Remote SSH') {
                             sshCommand remote: remote, command: "sudo docker pull fabiomp/fabio-tp-game"
-                            sshCommand remote: remote, command: "sudo docker run -d -p 5003:3000 --name calculator-key fabiomp/fabio-tp-game"
+                            sshCommand remote: remote, command: "sudo docker run -d -p 5003:3000 --name calculator fabiomp/fabio-tp-game"
                             
         azureCLI commands: [[exportVariablesString: '', script: 'az group create --name FabioGrpRsrc --location westeurope'], [exportVariablesString: '/publicIpAddress|PUBLIC_IP', script: 'az vm create -n Fabio-AZ-Jenkins -g FabioGrpRsrc --image UbuntuLTS --data-disk-sizes-gb 10 20']], principalCredentialId: '7349d3b2-951f-41be-877e-d8ccd9f3e73c'
                         }
