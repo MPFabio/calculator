@@ -35,17 +35,24 @@ pipeline {
             }
         }    
         
-        node {
-          def remote = [:]
-          remote.name = 'fabio'
-          remote.host = '4.233.106.239'
-          remote.user = 'fabio'
-          remote.password = 'Dofus69200Fabio'
-          remote.allowAnyHosts = true
-          stage('Remote SSH') {
-            sshCommand remote: remote, command: "sudo docker pull fabiomp/fabio-tp-game"
-            sshCommand remote: remote, command: "sudo docker run -d -p 5003:3000 --name calculator fabiomp/fabio-tp-game"
-          }
+        
+        stage('SSH') {
+            steps {
+                script{
+                    node {
+                        def remote = [:]
+                        remote.name = 'fabio'
+                        remote.host = '4.233.106.239'
+                        remote.user = 'fabio'
+                        remote.password = 'Dofus69200Fabio'
+                        remote.allowAnyHosts = true
+                        stage('Remote SSH') {
+                            sshCommand remote: remote, command: "sudo docker pull fabiomp/fabio-tp-game"
+                            sshCommand remote: remote, command: "sudo docker run -d -p 5003:3000 --name calculator fabiomp/fabio-tp-game"
+                        }
+                    }
+                }
+            }
         }
     }
 }
