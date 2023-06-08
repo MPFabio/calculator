@@ -44,7 +44,7 @@ pipeline {
                         remote.name = 'fabio'
                         remote.host = '4.233.106.239'
                         remote.user = 'fabio'
-                        remote.password = 'Dofus69200Fabio'
+                        remote.password = '****'
                         remote.allowAnyHosts = true
                         stage('Remote SSH') {
                             sshCommand remote: remote, command: "sudo docker pull fabiomp/fabio-tp-game"
