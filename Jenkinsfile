@@ -5,7 +5,7 @@ pipeline {
         stage ('Docker Build') {
             steps {
                 script {
-                    sh 'sudo docker build -t fabio-tp-game .'
+                    sh 'sudo docker build -t fabio-brief14 .'
                     echo 'Build Image Completed'
                 }    
             }
@@ -14,7 +14,7 @@ pipeline {
         stage ('Docker Tag') {
             steps {
                 script {
-                    sh 'sudo docker tag fabio-tp-game fabiomp/fabio-tp-game'
+                    sh 'sudo docker tag fabio-tp-game fabiomp/fabio-brief14'
                 }
             }
         }
@@ -30,7 +30,7 @@ pipeline {
         stage ('Docker Push') {
             steps {
                 script {
-                    sh 'sudo docker push fabiomp/fabio-tp-game'        
+                    sh 'sudo docker push fabiomp/fabio-brief14'        
                 }    
             }
         }    
@@ -47,8 +47,8 @@ pipeline {
                         remote.password = '****'
                         remote.allowAnyHosts = true
                         stage('Remote SSH') {
-                            sshCommand remote: remote, command: "sudo docker pull fabiomp/fabio-tp-game"
-                            sshCommand remote: remote, command: "sudo docker run -d -p 5003:3000 --name calculator fabiomp/fabio-tp-game"
+                            sshCommand remote: remote, command: "sudo docker pull fabiomp/fabio-brief14"
+                            sshCommand remote: remote, command: "sudo docker run -d -p 1234 --name tondocker fabiomp/fabio-brief13"
                             
         
                         }
