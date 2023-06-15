@@ -48,7 +48,7 @@ pipeline {
                         remote.allowAnyHosts = true
                         stage('Remote SSH') {
                             sshCommand remote: remote, command: "sudo docker pull fabiomp/fabio-brief14"
-                            sshCommand remote: remote, command: "sudo docker run -d -p 1234 --name tondocker fabiomp/fabio-brief13"
+                            sshCommand remote: remote, command: "sudo docker run -d -p 3001 --name tondocker fabiomp/fabio-brief13"
                             
         
                         }
